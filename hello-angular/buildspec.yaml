@@ -1,21 +1,21 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "angular-cicd-pipeline-demo"
+    APP_NAME: "hello-angular"
 phases:
   install:
     runtime-versions:
-      nodejs: 14.x
+      nodejs: 10
     commands:
       - echo install process started
-      - npm install 
+      - npm install && npm install -g @angular/cli
   build:
     commands:
       - echo build process started now
-      - ng build 
+      - ng build --configuration=production
   post_build:
     commands:
       - echo build process finished, we should uplload to S3 now
-      - cd dist/$hello-angular
+      - cd dist/$APP_NAME
       - ls -la
       - aws s3 sync . s3://my-awsome-bucket-of-files --delete
