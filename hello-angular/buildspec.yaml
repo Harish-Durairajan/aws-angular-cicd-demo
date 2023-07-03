@@ -8,11 +8,11 @@ phases:
       nodejs: 10
     commands:
       - echo install process started
-      - npm install && npm install -g @angular/cli
+      - npm install
   build:
     commands:
       - echo build process started now
-      - ng build --configuration=production
+      - ng build 
   post_build:
     commands:
       - echo build process finished, we should uplload to S3 now
