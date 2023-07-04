@@ -2,20 +2,23 @@ version: 0.2
 env:
   variables:
     APP_NAME: "hello-angular"
+
 phases:
   install:
     runtime-versions:
       nodejs: 10
     commands:
-      - echo install process started
+      - echo Install process started
       - npm install
+
   build:
     commands:
-      - echo build process started noow
-      - ng build 
+      - echo Build process started
+      - ng build --prod
+
   post_build:
     commands:
-      - echo build process finished, we should uplload to S3 now
+      - echo Build process finished, uploading to S3 now
       - cd dist/$APP_NAME
       - ls -la
       - aws s3 sync . s3://my-awsome-bucket-of-files --delete
