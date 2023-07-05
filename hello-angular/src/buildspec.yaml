@@ -20,7 +20,8 @@ phases:
         # -  cd hello-angular\src
       # - echo testings...
       # - echo building...
-      - ng build --prod
+      # - ng build --prod
+        - npm run build
 artifacts:
   files:
     - "**/*"
