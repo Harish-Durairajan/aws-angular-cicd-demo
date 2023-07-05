@@ -3,25 +3,21 @@ version: 0.1
 phases:
   install:
     commands:
-      - echo installing nodejs...
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - echo Installing Node.js and Yarn...
+      - apt-get update
       - apt-get install -y nodejs
-      - echo installing yarn...
-      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-      - apt install --no-install-recommends yarn
+      - apt-get install -y yarn 
+
   pre_build:
     commands:
       - echo installing dependencies...
       - npm i -g @angular/cli
-      # - npm install
+
   build:
     commands:
-        -  cd hello-angular
-      # - echo testings...
-      # - echo building...
-      # - ng build --prod
-        - npm run build
+      - cd hello-angular
+      - npm run build
+
 artifacts:
   files:
     - "**/*"
