@@ -17,7 +17,7 @@ phases:
       # - npm install
   build:
     commands:
-        # -  cd hello-angular\src
+        -  cd hello-angular
       # - echo testings...
       # - echo building...
       # - ng build --prod
