@@ -16,7 +16,7 @@ phases:
   build:
     commands:
       - cd hello-angular
-      - ng build
+      - npm run build
 
 artifacts:
   files:
